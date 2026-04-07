@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Game-Instance</title>
+<link rel="stylesheet" href="data.css">
+</head>
+
+<body>
+
+<h2>Game-Instance-G1</h2>
+
+<div class="container">
+    <!-- Editable TSV -->
+    <textarea id="tsvInput">
+B	+	B	=	10	.	.	.	.	.	.
++	.	+	.	+	.	.	.	.	.	.
+B	+	B	=	14	.	.	.	.	.	.
+=	.	=	.	=	.	.	.	.	.	.
+8	.	16	.	24	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+.	.	.	.	.	.	.	.	.	.	.
+
+<6 4 2 12>    </textarea>
+
+    <!-- Rendered View -->
+    <pre id="tsvOutput"></pre>
+</div>
+
+<button onclick="renderTSV()">Render</button>
+<button onclick="copyTSV()">Copy TSV</button>
+
+<script>
+function renderTSV() {
+    const input = document.getElementById("tsvInput").value;
+    document.getElementById("tsvOutput").textContent = input;
+}
+
+// Copy raw TSV (with tabs preserved)
+function copyTSV() {
+    const text = document.getElementById("tsvInput").value;
+    navigator.clipboard.writeText(text);
+    alert("TSV copied!");
+}
+
+// Initial render
+renderTSV();
+</script>
+
+</body>
+</html>
